@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Os Jogos - Mobado Games</title>
+    <style>
+        /*estilo para o botão e links ( estilo azul claro para links) ( efeito cor e tamanho para botão +cor=amarelo tamanho= pode ser 25px ou 35 dependendo do modelo de tela. )*/
+        button {
+            background-color: #FFD700; /* Amarelo */
+            color: black;
+            border: none;
+            padding: 12px 28px;
+            font-size: 2vw; /* Responsivo: 25px em telas pequenas, até 35px em telas grandes */
+            border-radius: 8px;
+            cursor: pointer;
+            font-weight: bold;
+            transition: background 0.3s, font-size 0.3s;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+        }
+        @media (max-width: 600px) {
+            button {
+                font-size: 25px;
+            }
+        }
+        @media (min-width: 601px) {
+            button {
+                font-size: 35px;
+            }
+        }
+        button:hover {
+            background-color: #FFB700;
+            color: #222;
+        }
+
+        a {
+            color: #ADD8E6; /* Azul claro */
+            text-decoration: underline;
+            font-weight: bold;
+            transition: color 0.3s;
+        }
+        a:hover {
+            color: #87CEEB; /* Azul mais forte no hover */
+        }
+        hidden {
+            display: none;
+        }
+        body {
+            background-color: #7b3f3f; /* Cor de fundo marrom avermelhado */
+            font-family: Arial, sans-serif;
+            text-align: center;
+            color: white; /* Cor de texto padrão para o corpo */
+            padding-bottom: 50px; /* Espaço extra na parte inferior */
+        }
+        h1 {
+            color: #FFD700; /* Dourado para o título principal */
+            font-size: 40px;
+            margin-bottom: 20px;
+        }
+        h2 {
+            color: #ADD8E6; /* Azul claro para subtítulos */
+            font-size: 30px;
+            margin-top: 30px;
+            margin-bottom: 15px;
+        }
+        .game-item {
+            background-color: rgba(255, 255, 255, 0.1); /* Fundo levemente transparente para cada item de jogo */
+            padding: 20px;
+            margin-bottom: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Sombra suave */
+            max-width: 700px; /* Limita a largura para melhor leitura */
+            margin-left: auto;
+            margin-right: auto;
+        }
+        .game-description {
+            font-size: 18px;
+            color: #E0E0E0; /* Cinza claro para descrições */
+            margin-bottom: 15px;
+            line-height: 1.6; /* Espaçamento entre linhas */
+        }
+        a {
+            display: block;
+            text-align: center;
+            margin-top: 20px;
+            font-size: 18px;
+            color: #ADD8E6; /* Azul claro para os links */
+            text-decoration: underline;
+            transition: color 0.3s ease; /* Transição suave para o hover */
+        }
+         a:hover {
+            color: #87CEEB; /* Cor no hover */
+        }
+        button {
+            background-color: #FFD700; /* Dourado para os botões */
+            color: black; /* Texto preto para contraste */
+            border: none;
+            padding: 10px 20px;
+            font-size: 18px;
+            cursor: pointer;
+            margin: 10px;
+            border-radius: 5px;
+            transition: background-color 0.3s ease; /* Transição suave para o hover */
+        }
+        button:hover {
+            background-color: #FFB700; /* Cor mais escura no hover */
+        }
+        .game-item:hover {
+            background-color: rgba(255, 255, 255, 0.2); /* Escurece o fundo ao passar o mouse */
+        }
+        p {
+            font-size: 18px;
+            color: white; /* Garante que os parágrafos de contato sejam brancos */
+            margin: 10px 0;
+        }
+    </style>
+</head>
+<body>
+    <h1>Os Jogos</h1>
+    <h2>Jogos que criamos</h2>
+    <h3>Filtros:</h3>
+    <button name="Todos">Todos</button>
+    <script>
+        document.querySelectorAll('button[name="Todos"]').forEach(button => {
+            button.addEventListener('click', () => {
+                document.querySelectorAll('.ALL').forEach(el => {
+                    el.hidden = false;
+                });
+                document.querySelector('h2').textContent = "Jogos que criamos";
+                document.querySelector('h3').textContent = "Filtros:";
+            });
+        });
+    </script>
+    <button name="AventuraF" data-filter="aventura">Aventura</button>
+<script>
+    document.querySelectorAll('button[name="AventuraF"]').forEach(button => {
+        button.addEventListener('click', () => {
+            document.querySelectorAll('.NoAventura').forEach(el => {
+                el.hidden = true;
+            });
+            document.querySelector('h2').textContent = "Apenas itens de Aventura foram filtrados";
+        });
+    });
+</script>
+<button name="Bug" data-filter="bug">Bugs</button>
+<script>
+    document.querySelectorAll('button[name="Bug"]').forEach(button => {
+        button.addEventListener('click', () => {
+            document.querySelectorAll('.NoBug').forEach(el => {
+                el.hidden = true;
+            });
+            document.querySelector('h2').textContent = "Apenas itens de Bugs foram filtrados";
+        });
+    });
+</script>
+
+<ul>
+    <li class="game-item ALL NoBug ">
+        <h3>Admin Grátis! (Grande Atualização)</h3>
+        <p class="game-description">
+            Este é um jogo de admin grátis que estamos sempre tentando melhorar.
+        </p>
+        <a href="https://www.roblox.com/pt/games/83391634808980/admin-gratis-grande-atualiza-o">
+            Clique aqui para jogar!
+        </a>
+    </li>
+    <li class="game-item Bug NoAventura ALL">
+            <h3 class="game-title"> Bug.: este jogo foi apagado por conta de um bug mas... nos aprendimos muito com este e outros jogos que deram bug entao viemos aqui para contar a historia dos jogos de bug: </h2>
+            <p class="game-description">
+                Este jogo foi deletado por conta de bug. Bug esse que era impossivel de se arrumar, entao desistimos do jogo.
+            </p>
+            <h1 style="font-size: 35px;">Joes'city</h1>
+            <h3> Este jogo marcou muito a minha historia ( na quela epoca nem existia Mobado ) eu criei tudo a mão ja que nao existia muitas coisas no roblox studio. Eu fui colocando Parts e mais Parts até que... veio um amigo que " sabia " programar... mas, quando eu vi ele sabia era hackear isso sim. mas depois disso fui ver o codigo e... ele tinha colocado um tipo de " virus " no meu jogo e... o jogo nao sei como sumiu da minha biblioteca de jogos.</h2>
+            <h3 style="color: red;"> fim </h3>
+        </li>
+    <li class="game-item NoAventura ALL NoBug">
+        <h3>Nosso Próximo Jogo</h3>
+        <p class="game-description">
+            Estamos criando outro jogo! Voltaremos aqui para atualizar apenas quando o jogo estiver pronto.
+        </p>
+        <p class="game-description" style="color: red; font-weight: bold;">
+            (O jogo que estávamos pensando foi adiado.)
+        </p>
+    </li>
+    <li class="game-item NoAventura ALL NoBug">
+        <h3>Novo Jogo em Ideia</h3>
+        <p class="game-description">
+            Estamos pensando em criar outro jogo (sim, nós nem terminamos direito o outro e já queremos criar outro!). Mande suas ideias no servidor do Discord no fim da página.
+        </p>
+    </li>
+</ul>
+</class>
+    <p style="font-size: 20px; color: brown;">Para voltar às outras páginas, clique nos links abaixo.</p>
+    <a href="https://sites.google.com/view/nossos-jogos-mobado/index-html-html">Voltar para a página inicial</a>
+    <a href="https://sites.google.com/view/nossos-jogos-mobado/grupo-html">Participe do grupo!</a>
+    
+    <p>Para mais informações, entre em contato conosco.</p>
+    <p>Email: alisonsinho1605@gmail.com</p>
+    <p>Telefone: (+55) 41 99231-0293</p>
+</body>
+</html>
